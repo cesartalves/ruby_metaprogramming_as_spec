@@ -1,10 +1,11 @@
-# ruby_study_repo
+# RUBY STUDY REPOSITORY
 repository for studying advanced ruby concepts such as metaprogramming and such
+
+- use code instead of text to explain myself
 
 ## RSpec guided
 
-bundle install, then rpsec -fd (format documentation)
-to see it pretty
+-  bundle install, then rpsec -fd (format documentation)
 
 ## 1 understanding the Object model
 
