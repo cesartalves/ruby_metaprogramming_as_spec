@@ -1,4 +1,4 @@
-describe "Metaprogramming" do
+describe "Metaprogramming-1" do
 
     class ObjectWithMethod
         def multiply_by_two(number); number*2; end
