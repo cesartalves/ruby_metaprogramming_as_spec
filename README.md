@@ -26,5 +26,11 @@ repository for studying advanced ruby concepts such as metaprogramming and such
 - self.class.constants -> constants on main
 - classes are no more than instances of 'Class' attributed to a constant
 
+## 2 Blocks / Scope operations
+
+- modudle, class and def change the scope
+- by using new, you can "flatten" the scope, therefore using variables from other scopes
+- Blocks vs Procs/Lambdas: Procs and Lambdas can be passed around, cause they are objects
+
 
 

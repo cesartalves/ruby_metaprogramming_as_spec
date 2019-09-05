@@ -27,25 +27,7 @@ describe "Ruby Blocks" do
         expect { method_using_block_implicitly }.to raise_error LocalJumpError
     end
 
-    xit "they are a Proc/Closures" do
+    xit "are a Proc/Closures" do
         expect { "any block really" }.to 
-    end
-end
-
-describe "Lambdas" do
-
-    let(:a_lambda) { -> { 5 }}
-
-    it "They are instances of Proc" do
-       expect(a_lambda.class).to eq Proc
-    end
-
-    it "they can be stored in variables, and called later on" do
-        expect(a_lambda.call).to eq 5
-    end
-
-    it "Lambdas are Procs but Procs aren't lambdas" do
-        expect(a_lambda.lambda?).to eq true
-        expect(Proc.new { }.lambda?).to eq false   
     end
 end
