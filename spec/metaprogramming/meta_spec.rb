@@ -84,6 +84,10 @@ describe "Metaprogramming" do
                 end
             }.to output("Metaprogramming: it's cool").to_stdout          
         end
+
+        it "public send (like eval)" do
+            expect(public_send("class")).to eq RSpec::ExampleGroups::Metaprogramming::MagicMethods
+        end
     end
 
     it "constant missing can also be overriden!" do

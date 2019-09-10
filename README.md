@@ -32,5 +32,11 @@ repository for studying advanced ruby concepts such as metaprogramming and such
 - by using new, you can "flatten" the scope, therefore using variables from other scopes
 - Blocks vs Procs/Lambdas: Procs and Lambdas can be passed around, cause they are objects
 
+## 3 Classes
+
+- As there's always a self, there's always a class
+- The class of main is Object
+- methods defined with "def" become binded to the current class
+
 
 
