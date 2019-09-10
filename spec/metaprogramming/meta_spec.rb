@@ -48,6 +48,12 @@ describe "Metaprogramming" do
             expect(ObjectWithMethod.new.instance_eval { @variable }).to eq 1
         end
 
+        it "instance_eval changes the self" do
+            expect(self.class).to eq RSpec::ExampleGroups::Metaprogramming::MagicMethods
+            expect("a_string".instance_eval { self }).not_to eq RSpec::ExampleGroups::Metaprogramming::MagicMethods
+            expect("a_string".instance_eval { self }).to eq "a_string"
+        end
+
         it "instance_eval for defining methods on the fly on a class" do
             ObjectWithMethod.class.instance_eval do
                 def add_to_3(number)

@@ -38,5 +38,11 @@ repository for studying advanced ruby concepts such as metaprogramming and such
 - The class of main is Object
 - methods defined with "def" become binded to the current class
 
+## TO-DO: rails cheatcode
+
+- pluck
+- uniq = unique
+
+
 
 
