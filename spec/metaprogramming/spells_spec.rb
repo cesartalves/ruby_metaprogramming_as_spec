@@ -22,6 +22,33 @@ describe "Spells" do
             Accessor.new.oh_my = 10
             expect(Accessor.new).to respond_to :oh_my 
         end
-    end
 
+        class Test
+            def one_method; 1; end
+
+            alias_method :one, :one_method
+            alias_method "o", "one"
+
+            def one_method
+                one + one
+            end
+    
+        end
+
+        it "alias" do
+            expect(Test.new).to respond_to :one
+            expect(Test.new).to respond_to :o
+        
+        end
+
+        it "around_alias" do
+
+            # these are the same, just for the sake of reference
+            Test.send :private, :one
+            Test.class_eval { private :one }
+
+            expect(Test.new).not_to respond_to :one
+            expect(Test.new.one_method).to eq 2
+        end
+    end
 end
