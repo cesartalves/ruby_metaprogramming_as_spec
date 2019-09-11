@@ -6,6 +6,16 @@ describe Module do
     it "has ancestors" do
         expect(subject.class.ancestors).to include(Module, Object, Kernel, BasicObject)
     end
+
+    it "overriding append features" do
+
+        module MyModule
+            def self.append_features(base); end
+        end
+
+        Object.include(MyModule)
+        expect(Object.ancestors).not_to include MyModule
+    end
 end
 
 

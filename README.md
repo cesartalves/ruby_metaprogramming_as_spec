@@ -1,13 +1,19 @@
-# RUBY STUDY REPOSITORY
-repository for studying advanced ruby concepts such as metaprogramming and such
+# RUBY METAPROGRAMMING AS SPEC
 
+
+- repository for studying advanced ruby concepts such as metaprogramming and such
 - use code instead of text to explain myself
+
+## References
+
+- [Ruby Metaprogramming](https://www.amazon.com/Metaprogramming-Ruby-Program-Like-Facets/dp/1941222129)
+- [Eloquent Ruby](https://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional/dp/0321584104/ref=sr_1_1?keywords=eloquent+ruby&qid=1568227533&s=books&sr=1-1)
 
 ## RSpec guided
 
 -  bundle install, then rpsec -fd (format documentation)
 
-## 1 understanding the Object model
+## 1: Understanding the Object model
 
 ![](https://i.stack.imgur.com/tBVGQ.png)
 
@@ -37,12 +43,6 @@ repository for studying advanced ruby concepts such as metaprogramming and such
 - As there's always a self, there's always a class
 - The class of main is Object
 - methods defined with "def" become binded to the current class
-
-## TO-DO: rails cheatcode
-
-- pluck
-- uniq = unique
-
 
 
 
