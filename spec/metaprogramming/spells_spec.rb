@@ -50,5 +50,9 @@ describe "Spells" do
             expect(Test.new).not_to respond_to :one
             expect(Test.new.one_method).to eq 2
         end
+
+        xit "deprecate" do
+            
+        end
     end
 end

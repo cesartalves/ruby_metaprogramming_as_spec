@@ -17,4 +17,8 @@ describe "Hooks" do
     end
     xit "extend" do
     end
+
+    xit "extend on include (pseudo-concern)" do
+
+    end
 end
