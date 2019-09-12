@@ -16,15 +16,20 @@ describe "Lambdas" do
     end
 
     it "Lambdas return from the inner scope" do
-        _ = lambda { return 3 }
+        _ = -> { return 3 }
         _.call
     end
 
-    it "Procs return from the outer scope" do
+    it "Procs 'return' from the outer scope (where they were called)" do
         _ = Proc.new { return 3 }
-        skip("LocalJumpError expected here") do
-            _.call
-        end 
+        
+        expect do
+            begin
+                _.call
+            rescue LocalJumpError
+                print "raised"
+            end    
+        end.to output("raised").to_stdout
     end
 
     it "Procs and lambdas have arity" do

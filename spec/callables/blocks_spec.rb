@@ -27,8 +27,8 @@ describe "Ruby Blocks" do
         expect { method_using_block_implicitly }.to raise_error LocalJumpError
     end
 
-    xit "are a Proc/Closures" do
-        expect { "any block really" }.to 
+    it "are a Proc/Closures" do
+        
     end
 
     it "Self yield" do

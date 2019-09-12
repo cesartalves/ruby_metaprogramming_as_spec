@@ -51,8 +51,30 @@ describe "Spells" do
             expect(Test.new.one_method).to eq 2
         end
 
-        xit "deprecate" do
-            
+        it "deprecate" do
+            class A
+                def self.deprecate(old_method, options = {})    
+
+                    raise "No new method given" unless options[:upgrade_to]
+                    options[:with_message]  ||=  "Warning: #{old_method} is deprecated! Use #{options[:upgrade_to]} instead"   
+                    
+                    define_method(old_method) do |*args, &block|
+                        print options[:with_message]
+                        send(options[:upgrade_to], *args, &block) # `self` is assumed when calling `send`
+                    end
+                end
+                
+            end
+
+            class A
+                deprecate :old_version, upgrade_to: :new_version
+
+                def new_version; end
+            end
+
+            expect { A.new.old_version }
+                .to output("Warning: old_version is deprecated! Use new_version instead")
+                .to_stdout
         end
     end
 end
