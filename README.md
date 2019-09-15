@@ -6,8 +6,8 @@
 
 ## References
 
-- [Ruby Metaprogramming](https://www.amazon.com/Metaprogramming-Ruby-Program-Like-Facets/dp/1941222129)
-- [Eloquent Ruby](https://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional/dp/0321584104/ref=sr_1_1?keywords=eloquent+ruby&qid=1568227533&s=books&sr=1-1)
+- [Ruby Metaprogramming](https://amzn.to/2LvxbKU)
+- [Eloquent Ruby](https://amzn.to/2O3azTN)
 
 ## RSpec guided
 
