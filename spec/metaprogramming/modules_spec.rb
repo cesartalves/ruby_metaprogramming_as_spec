@@ -16,6 +16,16 @@ describe Module do
         Object.include(MyModule)
         expect(Object.ancestors).not_to include MyModule
     end
+
+    it "nested modules" do
+
+        module A
+            module B
+                module C
+                end
+            end
+        end        
+    end
 end
 
 

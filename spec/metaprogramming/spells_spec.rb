@@ -1,6 +1,30 @@
 describe "Spells" do
 
     context "Class macro" do
+        it "documentation" do
+
+            class Object
+                def self.help(method, description)
+                    define_singleton_method("#{method}_help") { description }
+                end
+
+                class << self
+                    help def b
+                        "everything"
+                    end, "does everything"
+                end
+                
+                help def a
+                    "nothing"
+                end, "does nothing"  
+            end
+
+            expect(Object.a_help).to eq "does nothing"
+            expect(Object.singleton_class.b_help).to eq "does everything"
+            
+           
+        end
+
         it "attr_accessors" do
             class Accessor
                 class << self
@@ -51,6 +75,19 @@ describe "Spells" do
             expect(Test.new.one_method).to eq 2
         end
 
+        it "prepend wrapper" do
+
+            module StringExtension
+
+                def length
+                    super > 3 ? "long" : "short"
+                end
+            end
+
+            String.prepend(StringExtension)
+            expect("My".length).to eq "short"
+        end
+
         it "deprecate" do
             class A
                 def self.deprecate(old_method, options = {})    
@@ -75,6 +112,30 @@ describe "Spells" do
             expect { A.new.old_version }
                 .to output("Warning: old_version is deprecated! Use new_version instead")
                 .to_stdout
+        end
+    end
+
+    context "Roflmao" do
+
+        it "Make a string equal a different one" do
+
+            class String
+                alias_method :backup, :==
+
+                def ==(value)
+                    true
+                end
+
+            end
+            
+            expect("Vitor").to eq "O cara do meu lado"
+
+            class String
+
+                def ==(value)
+                    backup(value)
+                end
+            end
         end
     end
 end

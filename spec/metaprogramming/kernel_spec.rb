@@ -24,4 +24,18 @@ describe Kernel do
 
     end
 
+    it "itself" do
+
+        obj = Object.new
+        expect(obj.itself).to eq obj
+    end
+
+    it "binding" do
+
+        a = 3
+        expect(binding.local_variables).to include :a
+        expect(TOPLEVEL_BINDING).to be_kind_of Binding
+
+    end
+
 end

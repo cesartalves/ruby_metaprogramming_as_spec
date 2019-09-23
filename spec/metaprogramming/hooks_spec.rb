@@ -87,4 +87,26 @@ describe "Hooks" do
         expect(klass.new).to respond_to :one_instance_method
 
     end
+
+
+    it "coerce" do
+        class String
+            def coerce(other); [other, self.to_i]; end
+        end
+          
+        expect(1 + "1").to eq 2
+
+        class String
+            def coerce(other); [other.to_s, self] end
+        end
+
+        expect(1 + "2").to eq "12"
+
+        class String
+            def coerce(other); [self, other.to_s] end
+        end
+
+        expect(1 + "2").to eq "21"
+       
+    end
 end
