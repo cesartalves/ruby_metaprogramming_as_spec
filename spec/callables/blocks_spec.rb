@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe "Ruby Blocks" do
 
     def method_using_block_implicitly
@@ -32,7 +34,7 @@ describe "Ruby Blocks" do
     end
 
     it "Self yield" do
-        class Object
+        class String
             def yield_self
                 yield self.class
             end

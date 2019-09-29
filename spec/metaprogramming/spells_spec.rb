@@ -89,7 +89,7 @@ describe "Spells" do
         end
 
         it "deprecate" do
-            class A
+            class AClass
                 def self.deprecate(old_method, options = {})    
 
                     raise "No new method given" unless options[:upgrade_to]
@@ -103,13 +103,13 @@ describe "Spells" do
                 
             end
 
-            class A
+            class AClass
                 deprecate :old_version, upgrade_to: :new_version
 
                 def new_version; end
             end
 
-            expect { A.new.old_version }
+            expect { AClass.new.old_version }
                 .to output("Warning: old_version is deprecated! Use new_version instead")
                 .to_stdout
         end

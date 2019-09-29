@@ -16,7 +16,7 @@ describe "Hooks" do
     it "included" do
         module MyModule
             def self.included(includee) 
-                includee.define_method(:get_hooked) { |one, two| one + two } 
+                includee.send(:define_method, :get_hooked) { |one, two| one + two } 
             end
         end
 
@@ -31,7 +31,7 @@ describe "Hooks" do
     it "prepended" do
         module MyModule
             def self.prepended(includee) 
-                includee.define_method(:get_hooked) { |one, two| one + two } 
+                includee.send(:define_method, :get_hooked) { |one, two| one + two } 
             end
         end
 
@@ -52,7 +52,7 @@ describe "Hooks" do
                 
                 extendee.class_eval do
                     class << self
-                        self.define_method(:static) { 1 }
+                        define_method(:static) { 1 }
                     end
                 end
                 super

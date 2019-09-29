@@ -19,7 +19,7 @@ describe "Metaprogramming" do
     end
 
     it "We can define methods dynamically with define method" do
-        ObjectWithMethod.define_method(:multiply_by_three) { |arg| arg * 3}
+        ObjectWithMethod.send(:define_method, :multiply_by_three) { |arg| arg * 3}
 
         expect(ObjectWithMethod.new).to respond_to :multiply_by_three
     end
